@@ -12,7 +12,12 @@ error_reporting(E_ALL);
 require_once 'config.php';
 require_once 'classes/DatabaseManager.php';
 require_once 'classes/CardRepository.php';
-
+function pre_r($array)
+{
+    echo '<pre>';
+    print_r($array);
+    echo '</pre>';
+}
 $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['dbname']);
 $databaseManager->connect();
 
@@ -21,20 +26,20 @@ $databaseManager->connect();
 $cardRepository = new CardRepository($databaseManager);
 $cards = $cardRepository->get();
 var_dump($cards);
+
 // Get the current action to execute
 // If nothing is specified, it will remain empty (home should be loaded)
 $action = $_GET['action'] ?? null;
-
+var_dump($action);
 // Load the relevant action
 // This system will help you to only execute the code you want, instead of all of it (or complex if statements)
 switch ($action) {
     case 'create':
-        $this->create();
+        $values = "'{$_GET['title']}', '{$_GET['author']}', '{$_GET['synopsis']}'";
+        $cardRepository->create($values);
         break;
     default:
-        // $this->overview();
         require 'overview.php';
-        var_dump($_POST);
         break;
 }
 

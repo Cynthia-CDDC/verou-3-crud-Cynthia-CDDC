@@ -16,9 +16,11 @@ class CardRepository
         $this->databaseManager = $databaseManager;
     }
 
-    public function create(): void
+    public function create($values): void
     {
-
+        $query = "INSERT INTO `books` (`title`, `author`, `synopsis`) VALUES($values)";
+        $this->databaseManager->connection->query($query);
+        return;
     }
 
     // Get one
@@ -31,19 +33,13 @@ class CardRepository
     public function get(): PDOStatement
     
     {
-        // TODO: replace dummy data by real one
+        // replace dummy data by real one
+        // We get the database connection first, so we can apply our queries with it
         $query = "SELECT * FROM `books`";
         $result = $this->databaseManager->connection->query($query);
         return $result;
-        // return [
-        //     ['title' => 'dummy one'],
-        //     ['title' => 'dummy two'],
-        // ];
-
-        // We get the database connection first, so we can apply our queries with it
-        // return $this->databaseManager->connection-> (runYourQueryHere)
     }
-
+    
     public function update(): void
     {
 

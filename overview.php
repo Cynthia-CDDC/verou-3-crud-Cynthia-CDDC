@@ -9,25 +9,26 @@
 </head>
 <body>
 
-<h1>Goodcard - track your collection of Pokémon cards</h1>
+<h1>Goodcard - track your collection of Books cards</h1>
 
 <ul>
     <?php foreach ($cards as $card) : ?>
         <li><?= $card['title'] ?></li>
         <li><?= $card['author'] ?></li>
         <li><?= $card['synopsis'] ?></li>
+        
     <?php endforeach; ?>
 </ul>
 
-<form method="POST">
+<form method="GET">
     <label for="title">Title</label>
     <input type="text" id="title" name="title">
     <label for="author">Author</label>
     <input type="text" id="author" name="author">
     <label for="synopsis">synopsis</label>
     <input type="text" id="synopsis" name="synopsis">
-    <input type="submit">
+    <input type="submit" name="action" value="create">
 </form>
-
+<?php var_dump($_GET); ?>
 </body>
 </html>
