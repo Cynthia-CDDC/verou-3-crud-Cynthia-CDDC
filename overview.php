@@ -16,7 +16,7 @@
         <li><?= $card['title'] ?></li>
         <li><?= $card['author'] ?></li>
         <li><?= $card['synopsis'] ?></li>
-        
+        <a href="index.php?action=edit&id=<?= $card['id'] ?>">Edit</a>
     <?php endforeach; ?>
 </ul>
 
