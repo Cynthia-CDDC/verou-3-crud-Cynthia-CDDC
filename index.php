@@ -64,6 +64,6 @@ function update($cardRepository)
     {
         $cardRepository->update($_GET['id']);
     }
-    require 'classes/Edit.php';
+    require 'edit.php';
 }
     

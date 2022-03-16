@@ -33,17 +33,17 @@ class CardRepository
     public function get(): PDOStatement
     
     {
-        // replace dummy data by real one
         // We get the database connection first, so we can apply our queries with it
         $query = "SELECT * FROM `books`";
         $result = $this->databaseManager->connection->query($query);
         return $result;
     }
     
-    public function update($id): void
-    {   //TODO: finish update query
-        $query = "UPDATE `books` SET title = '{$_GET}' WHERE id = {$id}";
-        return;
+    public function update($id): PDOStatement
+    {  
+        $query = "UPDATE books SET title = '{$_POST['title']}', author = '{$_POST['author']}', synopsis = '{$_POST['synopsis']}'  WHERE id = {$id}";
+        $updateQuery = $this->databaseManager->connection->query($query);
+        return $updateQuery;
     }
 
     public function delete(): void
