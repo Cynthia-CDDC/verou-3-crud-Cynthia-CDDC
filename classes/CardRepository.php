@@ -42,6 +42,7 @@ class CardRepository
     {  
         $query = "UPDATE books SET title = '{$_POST['title']}', author = '{$_POST['author']}', synopsis = '{$_POST['synopsis']}'  WHERE id = {$id}";
         $updateQuery = $this->databaseManager->connection->query($query);
+        header('Location: index.php');
         return $updateQuery;
     }
 

@@ -16,8 +16,8 @@
         <li><?= $card['title'] ?></li>
         <li><?= $card['author'] ?></li>
         <li><?= $card['synopsis'] ?></li>
-        <a href="index.php?action=edit&id=<?= $card['id'] ?>">Edit</a>
-        <a href="index.php?action=delete&id=<?= $card['id'] ?>">Delete</a>
+        <a href="index.php?action=edit&id=<?= $card['id'] ?>&title=<?= $card['title'] ?>&author=<?= $card['author'] ?>&synopsis=<?= $card['synopsis'] ?>">Edit</a>
+        <a href="index.php?action=delete&id=<?= $card['id'] ?>&title=<?= $card['title'] ?>&author=<?= $card['author'] ?>&synopsis=<?= $card['synopsis'] ?>">Delete</a>
     <?php endforeach; ?>
 </ul>
 
