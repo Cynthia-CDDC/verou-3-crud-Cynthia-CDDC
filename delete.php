@@ -11,6 +11,6 @@ Do you want to delete this book?
         <input type="text" id="author" name="author" value="<?=$_GET['author']?>">
         <label for="synopsis">synopsis</label>
         <input type="text" id="synopsis" name="synopsis" value="<?=$_GET['synopsis']?>">
-        <input type="submit" name="deleteform">
+        <input type="submit" name="deleteform" value="DELETE">
     </form>
 <a href="index.php">HOME</a>

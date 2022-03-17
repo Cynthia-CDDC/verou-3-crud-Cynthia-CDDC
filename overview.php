@@ -18,7 +18,18 @@
         <a href="index.php?action=edit&id=<?= $card['id'] ?>&title=<?= $card['title'] ?>&author=<?= $card['author'] ?>&synopsis=<?= $card['synopsis'] ?>">Edit</a>
         <a href="index.php?action=delete&id=<?= $card['id'] ?>&title=<?= $card['title'] ?>&author=<?= $card['author'] ?>&synopsis=<?= $card['synopsis'] ?>">Delete</a>
     <?php endforeach; ?>
+    
 </ul>
+
+<form method="GET">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title">
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author">
+    <label for="synopsis">synopsis</label>
+    <input type="text" id="synopsis" name="synopsis">
+    <input type="submit" name="action" value="create">
+</form>
+
 </body>
 </html>
-<!-- &title=<?= $card['title'] ?>&author=<?= $card['author'] ?>&synopsis=<?= $card['synopsis'] ?>"><?= $card['title'] ?> -->

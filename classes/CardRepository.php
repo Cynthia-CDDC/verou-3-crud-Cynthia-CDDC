@@ -20,6 +20,7 @@ class CardRepository
     {   
         $query = "INSERT INTO `books` (`title`, `author`, `synopsis`) VALUES($values)";
         $this->databaseManager->connection->query($query);
+        header('Location: index.php');
         return;
     }
 
