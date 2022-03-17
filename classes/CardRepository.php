@@ -49,6 +49,7 @@ class CardRepository
     {   
         $query = "DELETE FROM books WHERE id= {$id}";
         $deleteQuery = $this->databaseManager->connection->query($query);
+        header('Location: index.php');
         return $deleteQuery;
     }
 
