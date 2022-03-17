@@ -29,7 +29,7 @@ $cardRepository = new CardRepository($databaseManager);
 // Get the current action to execute
 // If nothing is specified, it will remain empty (home should be loaded)
 $action = $_GET['action'] ?? null;
-var_dump($action);
+
 // Load the relevant action
 // This system will help you to only execute the code you want, instead of all of it (or complex if statements)
 switch ($action) {
@@ -38,6 +38,9 @@ switch ($action) {
         break;
     case 'edit':
         update($cardRepository);
+        break;
+    case 'delete':
+        delete($cardRepository);
         break;
     default:
         overview($cardRepository);
@@ -65,5 +68,13 @@ function update($cardRepository)
         $cardRepository->update($_GET['id']);
     }
     require 'edit.php';
+}
+function delete($cardRepository)
+{   
+    if (!empty($_POST))
+    {   
+        $cardRepository->delete($_GET['id']);
+    }
+    require 'delete.php';
 }
     

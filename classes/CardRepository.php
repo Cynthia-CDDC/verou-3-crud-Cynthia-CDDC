@@ -31,7 +31,6 @@ class CardRepository
 
     // Get all
     public function get(): PDOStatement
-    
     {
         // We get the database connection first, so we can apply our queries with it
         $query = "SELECT * FROM `books`";
@@ -46,9 +45,11 @@ class CardRepository
         return $updateQuery;
     }
 
-    public function delete(): void
-    {
-
+    public function delete($id): PDOStatement
+    {   
+        $query = "DELETE FROM books WHERE id= {$id}";
+        $deleteQuery = $this->databaseManager->connection->query($query);
+        return $deleteQuery;
     }
 
 }

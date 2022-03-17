@@ -17,6 +17,7 @@
         <li><?= $card['author'] ?></li>
         <li><?= $card['synopsis'] ?></li>
         <a href="index.php?action=edit&id=<?= $card['id'] ?>">Edit</a>
+        <a href="index.php?action=delete&id=<?= $card['id'] ?>">Delete</a>
     <?php endforeach; ?>
 </ul>
 
@@ -29,6 +30,5 @@
     <input type="text" id="synopsis" name="synopsis">
     <input type="submit" name="action" value="create">
 </form>
-<?php var_dump($_GET); ?>
 </body>
 </html>
