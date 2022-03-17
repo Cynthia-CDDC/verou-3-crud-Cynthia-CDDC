@@ -42,6 +42,9 @@ switch ($action) {
     case 'delete':
         delete($cardRepository);
         break;
+    case 'showMore':
+        showMore($cardRepository);
+        break;
     default:
         overview($cardRepository);
         break;
@@ -77,4 +80,9 @@ function delete($cardRepository)
     }
     require 'delete.php';
 }
-    
+function showMore($cardRepository)
+{   
+    $books = $cardRepository->showMore($_GET['id']);
+    require 'show.php';
+}
+

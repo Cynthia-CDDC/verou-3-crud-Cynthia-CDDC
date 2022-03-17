@@ -54,4 +54,10 @@ class CardRepository
         return $deleteQuery;
     }
 
+    public function showMore($id): PDOStatement
+    {   
+        $query = "SELECT * FROM `books` WHERE id= {$id}";
+        $showMoreQuery = $this->databaseManager->connection->query($query);
+        return $showMoreQuery;
+    }
 }
